@@ -2,6 +2,8 @@
 
 package crypto
 
+import "errors"
+
 func DecryptWithChromium(key, encryptPass []byte) ([]byte, error) {
 	if len(encryptPass) < 3 {
 		return nil, ErrCiphertextLengthIsInvalid
@@ -11,5 +13,5 @@ func DecryptWithChromium(key, encryptPass []byte) ([]byte, error) {
 }
 
 func DecryptWithDPAPI(_ []byte) ([]byte, error) {
-	return nil, nil
+	return nil, errors.New("not windows")
 }

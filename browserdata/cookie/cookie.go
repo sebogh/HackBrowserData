@@ -91,6 +91,9 @@ func (c *ChromiumCookie) Extract(masterKey []byte) error {
 			}
 		}
 
+		if len(value) > 32 {
+			value = value[32:]
+		}
 		cookie.Value = string(value)
 		*c = append(*c, cookie)
 	}
